@@ -158,5 +158,5 @@ def send_email(sender:str, receiver:str, password:str,smtp_server:str,smtp_port:
 
     server = smtplib.SMTP_SSL(smtp_server, smtp_port)
     server.login(sender, password)
-    server.sendmail(sender, [receiver], msg.as_string())
+    server.sendmail(sender + "@" + smtp_server, [receiver], msg.as_string())
     server.quit()
